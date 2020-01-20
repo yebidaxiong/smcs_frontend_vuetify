@@ -1,19 +1,67 @@
 <template>
     <div id="main-layout">
         <v-navigation-drawer v-model="drawerRight" app clipped right>
-            <v-list dense>
+            <v-list>
                 <v-list-item @click.stop="right = !right">
                     <v-list-item-action>
                         <v-icon>mdi-exit-to-app</v-icon>
                     </v-list-item-action>
                     <v-list-item-content>
-                        <v-list-item-title>Settings</v-list-item-title>
+                        <v-list-item-title class="font-weight-bold">维护与管理</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+                <v-list-item @click.stop="right = !right">
+                    <v-list-item-action>
+                        <v-icon>mdi-exit-to-app</v-icon>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                        <v-list-item-title><i class="fa fa-plug"></i> 设备管理</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+                <v-list-item @click.stop="right = !right">
+                    <v-list-item-action>
+                        <v-icon>mdi-exit-to-app</v-icon>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                        <v-list-item-title><i class="fa fa-flag"></i> 事件管理</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+                <v-list-item @click.stop="right = !right">
+                    <v-list-item-action>
+                        <v-icon>mdi-exit-to-app</v-icon>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                        <v-list-item-title><i class="fa fa-archive"></i> 存储计划</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+                <v-list-item @click.stop="right = !right">
+                    <v-list-item-action>
+                        <v-icon>mdi-exit-to-app</v-icon>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                        <v-list-item-title><i class="fa fa-user"></i> 用户管理</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+                <v-list-item @click.stop="right = !right">
+                    <v-list-item-action>
+                        <v-icon>mdi-exit-to-app</v-icon>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                        <v-list-item-title><i class="fa fa-cog"></i> 系统配置</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+                <v-list-item @click.stop="right = !right">
+                    <v-list-item-action>
+                        <v-icon>mdi-exit-to-app</v-icon>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                        <v-list-item-title><i class="fa fa-file-code-o"></i> 系统日志</v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
             </v-list>
         </v-navigation-drawer>
 
-        <v-app-bar app clipped-right color="blue-grey" dark>
+        <v-app-bar app clipped-right color="blue-grey darken-3" dark dense>
             <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
             <v-toolbar-title>综合安全预警平台</v-toolbar-title>
             <v-spacer />
@@ -38,35 +86,8 @@
         <v-content>
             <v-container class="fill-height" fluid>
                 <v-row justify="center" align="center">
-                    <v-col class="shrink">
-                        <v-tooltip right>
-                            <template v-slot:activator="{ on }">
-                                <v-btn
-                                    :href="source"
-                                    icon
-                                    large
-                                    target="_blank"
-                                    v-on="on"
-                                >
-                                    <v-icon large>mdi-code-tags</v-icon>
-                                </v-btn>
-                            </template>
-                            <span>Source</span>
-                        </v-tooltip>
-                        <v-tooltip right>
-                            <template v-slot:activator="{ on }">
-                                <v-btn
-                                    icon
-                                    large
-                                    href="https://codepen.io/johnjleider/pen/QewYYx"
-                                    target="_blank"
-                                    v-on="on"
-                                >
-                                    <v-icon large>mdi-codepen</v-icon>
-                                </v-btn>
-                            </template>
-                            <span>Codepen</span>
-                        </v-tooltip>
+                    <v-col>
+                        <Desktop></Desktop>
                     </v-col>
                 </v-row>
             </v-container>
@@ -74,8 +95,8 @@
 
         <v-navigation-drawer v-model="right" fixed right temporary></v-navigation-drawer>
 
-        <v-footer app color="blue-grey" class="white--text">
-            <span>中冶焦耐自动化公司</span>
+        <v-footer app color="blue-grey darken-3" class="white--text">
+            <span>中冶焦耐自动化有限公司</span>
             <v-spacer />
             <span>&copy; 2019</span>
         </v-footer>
@@ -83,10 +104,11 @@
 </template>
 
 <script>
+    import Desktop from "./home/Desktop";
     export default {
         name: "MainLayout",
         components: {
-
+            Desktop,
         },
         props: {
             source: String,
@@ -106,5 +128,7 @@
 </script>
 
 <style scoped>
+    .main-layout {
 
+    }
 </style>
